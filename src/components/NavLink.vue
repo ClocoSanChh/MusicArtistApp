@@ -12,7 +12,7 @@
     </ul>
 
     <ul class="navbar-nav me-auto" v-else>
-        <li v-if="auth" v-for="(menu, index) in menus" class="nav-item me-4 mb-3" :key="menu.name">
+        <li v-for="(menu, index) in menus" class="nav-item me-4 mb-3" :key="menu.name">
             <router-link 
             :to="menu.link"
             class="link link-hover"
@@ -25,7 +25,7 @@
 </template>
 <script>
 export default {
-    props: ['menus', 'type', 'auth']
+    props: ['menus', 'type']
 }
 </script>
 <style scoped>
