@@ -118,6 +118,9 @@ router.beforeEach((to, from, next) => {
     login(key);
   }
   else{
+    $globals.set('auth', 0);
+    $globals.delete('user');
+    $bus.$emit('updateNav');
     if ( !(to.name == 'login' || to.name == 'register') ){
       $globals.set('loginError', 'Login First to Continue');
       next({name:'login'});
