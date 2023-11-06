@@ -65,7 +65,11 @@
                 <div>
                     <button @click="togglePopup()" class="btn btn-success">Edit Details</button>
                 </div>
-                <div v-if="user.id != $globals.get('user').id">
+                <div 
+                :class="{
+                    'd-block' : this.id != $globals.get('user').id,
+                    'd-none' : this.id == $globals.get('user').id
+                }">
                     <button @click="deleteUser()" class="btn btn-danger">Delete</button>
                 </div>
             </div>
@@ -151,7 +155,7 @@ computed : {
 data() {
     return {
         user : {
-            id: '',
+            id: null,
             firstname: '',
             lastname: '',
             email: '',
