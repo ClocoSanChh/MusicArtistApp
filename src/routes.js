@@ -30,32 +30,23 @@ const routes = [
     path: '/',
     children: [
         {path: 'home', name: 'home', component: Home},
-        {path: 'users', name:'users', component: Users},
-        {path: 'artists', name: 'artists', component: Artists},
+        {
+          path: 'users', 
+          children: [
+            {path: '/', name: 'users', component: Users},
+            {path: ':id', name: 'userDetails', component: UserDetails, props:true},
+          ]
+        },
+        {
+          path: 'artists', 
+          children: [
+            {path: '/', name: 'artists', component: Artists},
+            {path: ':id', name: 'artistDetails', component: ArtistDetails, props:true},
+          ]
+        },
+        {path: '/songs/:id', name: 'songDetails', component: SongDetails, props:true},
     ]
   },
-
-  {
-    path: '/users',
-    children: [
-        {path: ':id', name: 'userDetails', component: UserDetails, props:true},
-    ]
-  },
-
-  {
-    path: '/artists',
-    children: [
-        {path: ':id', name: 'artistDetails', component: ArtistDetails, props:true},
-    ]
-  },
-
-  {
-    path: '/songs',
-    children: [
-        {path: ':id', name: 'songDetails', component: SongDetails, props:true},
-    ]
-  },
-  
 ]
 
 const router = createRouter({
