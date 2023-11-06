@@ -4,21 +4,21 @@
             <div>
                 <h5 class="fw-bold">LOGIN</h5>
             </div>
-            <form action="" class="mt-3">
+            <form action="" class="mt-3 d-flex flex-column gap-2">
                 <div>
                     <label for="email">Email</label><br>
-                    <input v-model="email" type="email" name="email" id="email">
+                    <input v-model="email" type="email" name="email" id="email" placeholder="Enter Email Address">
                 </div>
                 <div>
                     <label for="password">Password</label><br>
-                    <input v-model="password" type="password" name="password" id="password">
+                    <input v-model="password" type="password" name="password" id="password" placeholder="Enter Password">
                 </div>
                 <div v-if="error.length>0" class="text-danger text-center mt-2">
                     {{error}}
                 </div>
                 <div class="d-grid gap-2 mt-3">
-                    <button @click.prevent="login()" type="submit" class="btn btn-lg btn-success">Login</button>
-                    <button @click.prevent="$router.push({name:'register'})" class="btn btn-lg btn-dark">Register</button>
+                    <span @click.prevent="login()" type="submit" class="btn btn-lg btn-success">Login</span>
+                    <span @click.prevent="$router.push({name:'register'})" class="btn btn-lg btn-dark">Register</span>
                 </div>
             </form>
         </div>

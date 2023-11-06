@@ -4,7 +4,7 @@
             <div>
                 <h5 class="fw-bold">Create An Account</h5>
             </div>
-            <form action="#" class="mt-3">
+            <form action="#" class="mt-3 d-flex flex-column gap-2">
                 <div>
                     <label class="fw-bold" for="firstname">First Name*</label><br>
                     <input v-model="user.firstname" type="text" name="firstname" id="firstname" placeholder="Enter First Name" required>
