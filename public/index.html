@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <style>
+      ::-webkit-scrollbar {
+        width: 10px;
+        opacity: 0.5;
+      }
+
+      /* Track */
+      ::-webkit-scrollbar-track {
+        opacity: 0;
+      }
+
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background: #555;
+      }
+
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #888;
+      }
+      a{
+        text-decoration: none!important;
+        color: rgba(255,255,255,0.85) !important;
+      }
+      #app {
+        /* font-family: 'Cabin', sans-serif; */
+        font-size: 16px;
+        color: rgba(0, 0, 0, 0.85);
+        font-family: Avenir, Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      body{
+        background-color: #FAFAFA !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
