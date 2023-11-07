@@ -275,7 +275,7 @@ watch: {
     height:200px;
     width:200px;
     border-radius:100px;
-    box-shadow: 0px 0px 20px 5px rgba(21, 155, 179, 0.158);
+    box-shadow: 0px 0px 20px 5px rgba(232, 37, 92, 0.12);
 }
 
 </style>

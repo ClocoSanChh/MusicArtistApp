@@ -480,7 +480,7 @@ watch: {
     height:80px;
     width:80px;
     border-radius:40px;
-    box-shadow: 0px 0px 20px 5px rgba(21, 155, 179, 0.158);
+    box-shadow: 0px 0px 20px 5px rgba(232, 37, 92, 0.12);
 }
 
 .main-container {
