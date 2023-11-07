@@ -1,64 +1,78 @@
 <template>
-<div class="d-flex justify-content-center my-5 gap-5 flex-wrap">
-    <div class="">
-        <div class="d-flex flex-column justify-content-center align-items-center gap-3">
-            <div>
-                <img class="song-logo" :src="$globals.get('baseUrl')+'/song.jpg'">
-            </div>
-            <div class="text-center">
-                <h3>{{song.title}}</h3>
-                <h6>{{song.artist.name}}</h6>
-            </div>
+<div class="d-flex flex-column justify-content-center my-5 gap-5 flex-wrap">
+    <div class="d-flex justify-content-between flex-wrap px-2">
+        <div class="fs-3 fw-bold">
+            Song Details
+        </div>
+        <div>
+            <button @click="$router.go(-1)" class="d-flex btn btn-dark align-items-center">
+                <div class="fw-bold">
+                    &lt; Go Back
+                </div>
+            </button>
         </div>
     </div>
-    <div class="col-12 col-lg-7">
-        <div class="d-flex flex-column justify-content-center main-container rounded p-4 gap-1">
-            <div class="d-flex align-items-center flex-wrap">
-                <div class="fw-bold fs-5 me-2">
-                    Artist Name:
-                </div>
+    <div class="d-flex flex-wrap justify-content-center gap-5">
+        <div class="">
+            <div class="d-flex flex-column justify-content-center align-items-center gap-3">
                 <div>
-                    {{song.artist.name?song.artist.name:'none'}}
+                    <img class="song-logo" :src="$globals.get('baseUrl')+'/song.jpg'">
+                </div>
+                <div class="text-center">
+                    <h3>{{song.title}}</h3>
+                    <h6>{{song.artist.name}}</h6>
                 </div>
             </div>
-            <div class="d-flex align-items-center flex-wrap">
-                <div class="fw-bold fs-5 me-2">
-                    Album Name:
+        </div>
+        <div class="col-12 col-lg-7">
+            <div class="d-flex flex-column justify-content-center main-container rounded p-4 gap-1">
+                <div class="d-flex align-items-center flex-wrap">
+                    <div class="fw-bold fs-5 me-2">
+                        Artist Name:
+                    </div>
+                    <div>
+                        {{song.artist.name?song.artist.name:'none'}}
+                    </div>
                 </div>
-                <div>
-                    {{song.album_name?song.album_name:'none'}}
+                <div class="d-flex align-items-center flex-wrap">
+                    <div class="fw-bold fs-5 me-2">
+                        Album Name:
+                    </div>
+                    <div>
+                        {{song.album_name?song.album_name:'none'}}
+                    </div>
                 </div>
-            </div>
-            <div class="d-flex align-items-center flex-wrap">
-                <div class="fw-bold fs-5 me-2">
-                    Genre:
+                <div class="d-flex align-items-center flex-wrap">
+                    <div class="fw-bold fs-5 me-2">
+                        Genre:
+                    </div>
+                    <div>
+                        {{song.genre?song.genre:'none'}}
+                    </div>
                 </div>
-                <div>
-                    {{song.genre?song.genre:'none'}}
+                <div class="d-flex align-items-center flex-wrap">
+                    <div class="fw-bold fs-5 me-2">
+                        Updated at:
+                    </div>
+                    <div>
+                        {{song.updated_at}}
+                    </div>
                 </div>
-            </div>
-            <div class="d-flex align-items-center flex-wrap">
-                <div class="fw-bold fs-5 me-2">
-                    Updated at:
+                <div class="d-flex align-items-center flex-wrap">
+                    <div class="fw-bold fs-5 me-2">
+                        Created at:
+                    </div>
+                    <div>
+                        {{ song.created_at }}
+                    </div>
                 </div>
-                <div>
-                    {{song.updated_at}}
-                </div>
-            </div>
-            <div class="d-flex align-items-center flex-wrap">
-                <div class="fw-bold fs-5 me-2">
-                    Created at:
-                </div>
-                <div>
-                    {{ song.created_at }}
-                </div>
-            </div>
-            <div class="d-flex justify-content-center justify-content-lg-start flex-wrap mt-3 gap-2">
-                <div>
-                    <button @click="togglePopup()" class="btn btn-success">Edit Details</button>
-                </div>
-                <div>
-                    <button @click="deleteSong()" class="btn btn-danger">Delete</button>
+                <div class="d-flex justify-content-center justify-content-lg-start flex-wrap mt-3 gap-2">
+                    <div>
+                        <button @click="togglePopup()" class="btn btn-success">Edit Details</button>
+                    </div>
+                    <div>
+                        <button @click="deleteSong()" class="btn btn-danger">Delete</button>
+                    </div>
                 </div>
             </div>
         </div>

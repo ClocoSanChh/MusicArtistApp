@@ -1,76 +1,90 @@
 <template>
-<div class="d-flex justify-content-center my-5 gap-5 flex-wrap">
-    <div class="">
-        <div class="d-flex flex-column justify-content-center align-items-center gap-3">
-            <div>
-                <img class="user-logo" :src="$globals.get('baseUrl')+'/user.png'">
-            </div>
-            <div class="text-center">
-                <h3>{{user.firstname+' '+user.lastname}}</h3>
-                <h6>{{user.email}}</h6>
-            </div>
+<div class="d-flex flex-column justify-content-center my-5 gap-5 flex-wrap">
+    <div class="d-flex justify-content-between flex-wrap px-2">
+        <div class="fs-3 fw-bold">
+            User Details
+        </div>
+        <div>
+            <button @click="$router.go(-1)" class="d-flex btn btn-dark align-items-center">
+                <div class="fw-bold">
+                    &lt; Go Back
+                </div>
+            </button>
         </div>
     </div>
-    <div class="col-12 col-lg-7">
-        <div class="d-flex flex-column justify-content-center main-container rounded p-4 gap-1">
-            <div class="d-flex align-items-center flex-wrap">
-                <div class="fw-bold fs-5 me-2">
-                    Phone:
-                </div>
+    <div class="d-flex flex-wrap justify-content-center gap-5">
+        <div class="">
+            <div class="d-flex flex-column justify-content-center align-items-center gap-3">
                 <div>
-                    {{user.phone?user.phone:'none'}}
+                    <img class="user-logo" :src="$globals.get('baseUrl')+'/user.png'">
+                </div>
+                <div class="text-center">
+                    <h3>{{user.firstname+' '+user.lastname}}</h3>
+                    <h6>{{user.email}}</h6>
                 </div>
             </div>
-            <div class="d-flex align-items-center flex-wrap">
-                <div class="fw-bold fs-5 me-2">
-                    Date of Birth:
+        </div>
+        <div class="col-12 col-lg-7">
+            <div class="d-flex flex-column justify-content-center main-container rounded p-4 gap-1">
+                <div class="d-flex align-items-center flex-wrap">
+                    <div class="fw-bold fs-5 me-2">
+                        Phone:
+                    </div>
+                    <div>
+                        {{user.phone?user.phone:'none'}}
+                    </div>
                 </div>
-                <div>
-                    {{user.dob?user.dob:'none'}}
+                <div class="d-flex align-items-center flex-wrap">
+                    <div class="fw-bold fs-5 me-2">
+                        Date of Birth:
+                    </div>
+                    <div>
+                        {{user.dob?user.dob:'none'}}
+                    </div>
                 </div>
-            </div>
-            <div class="d-flex align-items-center flex-wrap">
-                <div class="fw-bold fs-5 me-2">
-                    Gender:
+                <div class="d-flex align-items-center flex-wrap">
+                    <div class="fw-bold fs-5 me-2">
+                        Gender:
+                    </div>
+                    <div>
+                        {{user.gender?user.gender:'none'}}
+                    </div>
                 </div>
-                <div>
-                    {{user.gender?user.gender:'none'}}
+                <div class="d-flex align-items-center flex-wrap">
+                    <div class="fw-bold fs-5 me-2">
+                        Address:
+                    </div>
+                    <div>
+                        {{user.address?user.address:'none'}}
+                    </div>
                 </div>
-            </div>
-            <div class="d-flex align-items-center flex-wrap">
-                <div class="fw-bold fs-5 me-2">
-                    Address:
+                <div class="d-flex align-items-center flex-wrap">
+                    <div class="fw-bold fs-5 me-2">
+                        Updated at:
+                    </div>
+                    <div>
+                        {{user.updated_at}}
+                    </div>
                 </div>
-                <div>
-                    {{user.address?user.address:'none'}}
+                <div class="d-flex align-items-center flex-wrap">
+                    <div class="fw-bold fs-5 me-2">
+                        Created at:
+                    </div>
+                    <div>
+                        {{ user.created_at }}
+                    </div>
                 </div>
-            </div>
-            <div class="d-flex align-items-center flex-wrap">
-                <div class="fw-bold fs-5 me-2">
-                    Updated at:
-                </div>
-                <div>
-                    {{user.updated_at}}
-                </div>
-            </div>
-            <div class="d-flex align-items-center flex-wrap">
-                <div class="fw-bold fs-5 me-2">
-                    Created at:
-                </div>
-                <div>
-                    {{ user.created_at }}
-                </div>
-            </div>
-            <div class="d-flex justify-content-center justify-content-lg-start flex-wrap mt-3 gap-2">
-                <div>
-                    <button @click="togglePopup()" class="btn btn-success">Edit Details</button>
-                </div>
-                <div 
-                :class="{
-                    'd-block' : this.id != $globals.get('user').id,
-                    'd-none' : this.id == $globals.get('user').id
-                }">
-                    <button @click="deleteUser()" class="btn btn-danger">Delete</button>
+                <div class="d-flex justify-content-center justify-content-lg-start flex-wrap mt-3 gap-2">
+                    <div>
+                        <button @click="togglePopup()" class="btn btn-success">Edit Details</button>
+                    </div>
+                    <div 
+                    :class="{
+                        'd-block' : this.id != $globals.get('user').id,
+                        'd-none' : this.id == $globals.get('user').id
+                    }">
+                        <button @click="deleteUser()" class="btn btn-danger">Delete</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,127 +1,142 @@
 <template>
-    <div class="d-flex justify-content-center my-5 gap-5 flex-wrap">
-        <!-- artist image row -->
-        <div>
-            <div class="d-flex flex-column justify-content-center align-items-center gap-3">
-                <div>
-                    <img class="user-logo" :src="$globals.get('baseUrl')+'/artist.jpg'">
-                </div>
-                <div class="text-center">
-                    <h3>{{artist.name?artist.name:'none'}}</h3>
-                </div>
+    <div class="d-flex flex-column justify-content-center my-5 gap-5 flex-wrap">
+        <div class="d-flex justify-content-between flex-wrap px-2">
+            <div class="fs-3 fw-bold">
+                Artist Details
+            </div>
+            <div>
+                <button @click="$router.go(-1)" class="d-flex btn btn-dark align-items-center">
+                    <div class="fw-bold">
+                        &lt; Go Back
+                    </div>
+                </button>
             </div>
         </div>
-        <!-- artist detail row -->
-        <div class="col-12 col-lg-7">
-            <!-- artist detail column -->
-            <div class="d-flex flex-column gap-3">
-                <div class="d-flex flex-column justify-content-center main-container rounded p-4 gap-1">
-                    <div class="d-flex align-items-center flex-wrap">
-                        <div class="fw-bold fs-5 me-2">
-                            Date of Birth:
-                        </div>
-                        <div>
-                            {{artist.dob?artist.dob:'none'}}
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center flex-wrap">
-                        <div class="fw-bold fs-5 me-2">
-                            Gender:
-                        </div>
-                        <div>
-                            {{artist.gender?artist.gender:'none'}}
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center flex-wrap">
-                        <div class="fw-bold fs-5 me-2">
-                            Address:
-                        </div>
-                        <div>
-                            {{artist.address?artist.address:'none'}}
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center flex-wrap">
-                        <div class="fw-bold fs-5 me-2">
-                            First Release Year:
-                        </div>
-                        <div>
-                            {{artist.first_release_year?artist.first_release_year:'none'}}
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center flex-wrap">
-                        <div class="fw-bold fs-5 me-2">
-                            No of Albums Released:
-                        </div>
-                        <div>
-                            {{artist.no_of_albums_released?artist.no_of_albums_released:'none'}}
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center flex-wrap">
-                        <div class="fw-bold fs-5 me-2">
-                            Updated at:
-                        </div>
-                        <div>
-                            {{artist.updated_at?artist.updated_at:'none'}}
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center flex-wrap">
-                        <div class="fw-bold fs-5 me-2">
-                            Created at:
-                        </div>
-                        <div>
-                            {{artist.created_at?artist.created_at:'none'}}
-                        </div>
-                    </div>
-                    <div class="d-flex justify-content-center justify-content-lg-start flex-wrap mt-3 gap-2">
-                        <div>
-                            <button @click="togglePopup(0)" class="btn btn-success">Edit Details</button>
-                        </div>
-                        <div>
-                            <button @click="deleteArtist()" class="btn btn-danger">Delete</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- column -->
-                <div class="d-flex justify-content-between flex-wrap px-2">
-                    <div class="fs-3 fw-bold">
-                        Songs
-                    </div>
+        <div class="d-flex flex-wrap justify-content-center gap-5">
+            <!-- artist image row -->
+            <div>
+                <div class="d-flex flex-column justify-content-center align-items-center gap-3">
                     <div>
-                        <button @click="togglePopup(1)" class="btn btn-success">
-                            <div class="fw-bold">
-                                Add New
-                            </div>
-                        </button>
+                        <img class="user-logo" :src="$globals.get('baseUrl')+'/artist.jpg'">
+                    </div>
+                    <div class="text-center">
+                        <h3>{{artist.name?artist.name:'none'}}</h3>
                     </div>
                 </div>
-
-                <!-- songs column -->
-                <div class="d-flex flex-column gap-2">
-                    <!-- column -->
-                    <div v-for="(song, index) in songs" class="list-container rounded p-4"  @click="$router.push({name:'songDetails', params:{id:song.id}})" :key="index">
-                        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
-                            <!-- row -->
-                            <div class="d-flex justify-content-center align-items-center gap-4">
-                                <div>
-                                    <img class="song-logo" :src="$globals.get('baseUrl')+'/song.jpg'">
-                                </div>
-                                <div class="d-flex flex-column justify-content-center">
-                                    <div class="fw-normal fs-3">{{song.title}}</div>
-                                    <div class="fw-normal">{{song.album_name}}</div>
-                                </div>
+            </div>
+            <!-- artist detail row -->
+            <div class="col-12 col-lg-7">
+                <!-- artist detail column -->
+                <div class="d-flex flex-column gap-3">
+                    <div class="d-flex flex-column justify-content-center main-container rounded p-4 gap-1">
+                        <div class="d-flex align-items-center flex-wrap">
+                            <div class="fw-bold fs-5 me-2">
+                                Date of Birth:
                             </div>
-                            <!-- row -->
-                            <div class="d-none d-sm-block">
-                                <button class="btn btn-danger" @click.stop="deleteSong(song)">
-                                    <img :src="$globals.get('baseUrl')+'/trash.png'">
-                                </button>
+                            <div>
+                                {{artist.dob?artist.dob:'none'}}
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center flex-wrap">
+                            <div class="fw-bold fs-5 me-2">
+                                Gender:
+                            </div>
+                            <div>
+                                {{artist.gender?artist.gender:'none'}}
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center flex-wrap">
+                            <div class="fw-bold fs-5 me-2">
+                                Address:
+                            </div>
+                            <div>
+                                {{artist.address?artist.address:'none'}}
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center flex-wrap">
+                            <div class="fw-bold fs-5 me-2">
+                                First Release Year:
+                            </div>
+                            <div>
+                                {{artist.first_release_year?artist.first_release_year:'none'}}
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center flex-wrap">
+                            <div class="fw-bold fs-5 me-2">
+                                No of Albums Released:
+                            </div>
+                            <div>
+                                {{artist.no_of_albums_released?artist.no_of_albums_released:'none'}}
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center flex-wrap">
+                            <div class="fw-bold fs-5 me-2">
+                                Updated at:
+                            </div>
+                            <div>
+                                {{artist.updated_at?artist.updated_at:'none'}}
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center flex-wrap">
+                            <div class="fw-bold fs-5 me-2">
+                                Created at:
+                            </div>
+                            <div>
+                                {{artist.created_at?artist.created_at:'none'}}
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center justify-content-lg-start flex-wrap mt-3 gap-2">
+                            <div>
+                                <button @click="togglePopup(0)" class="btn btn-success">Edit Details</button>
+                            </div>
+                            <div>
+                                <button @click="deleteArtist()" class="btn btn-danger">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- column -->
+                    <div class="d-flex justify-content-between flex-wrap px-2">
+                        <div class="fs-3 fw-bold">
+                            Songs
+                        </div>
+                        <div>
+                            <button @click="togglePopup(1)" class="btn btn-success">
+                                <div class="fw-bold">
+                                    Add New
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- songs column -->
+                    <div class="d-flex flex-column gap-2">
+                        <!-- column -->
+                        <div v-for="(song, index) in songs" class="list-container rounded p-4"  @click="$router.push({name:'songDetails', params:{id:song.id}})" :key="index">
+                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                                <!-- row -->
+                                <div class="d-flex justify-content-center align-items-center gap-4">
+                                    <div>
+                                        <img class="song-logo" :src="$globals.get('baseUrl')+'/song.jpg'">
+                                    </div>
+                                    <div class="d-flex flex-column justify-content-center">
+                                        <div class="fw-normal fs-3">{{song.title}}</div>
+                                        <div class="fw-normal">{{song.album_name}}</div>
+                                    </div>
+                                </div>
+                                <!-- row -->
+                                <div class="d-none d-sm-block">
+                                    <button class="btn btn-danger" @click.stop="deleteSong(song)">
+                                        <img :src="$globals.get('baseUrl')+'/trash.png'">
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
     </div>
 
     
