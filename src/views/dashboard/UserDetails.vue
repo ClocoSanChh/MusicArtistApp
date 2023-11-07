@@ -2,10 +2,23 @@
 <div class="d-flex flex-column justify-content-center my-5 gap-5 flex-wrap">
     <div class="d-flex justify-content-between flex-wrap px-2">
         <div class="fs-3 fw-bold">
-            User Details
+            User <span 
+            :class="{
+                'd-inline' : this.id != $globals.get('user').id,
+                'd-none' : this.id == $globals.get('user').id
+            }">Details</span><span 
+            :class="{
+                'd-none' : this.id != $globals.get('user').id,
+                'd-inline' : this.id == $globals.get('user').id
+            }">Profile</span>
         </div>
         <div>
-            <button @click="$router.go(-1)" class="d-flex btn btn-dark align-items-center">
+            <button 
+            :class="{
+                'd-block' : this.id != $globals.get('user').id,
+                'd-none' : this.id == $globals.get('user').id
+            }"
+            @click="$router.go(-1)" class="d-flex btn btn-dark align-items-center">
                 <div class="fw-bold">
                     &lt; Go Back
                 </div>
