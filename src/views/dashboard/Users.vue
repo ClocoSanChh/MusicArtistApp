@@ -12,7 +12,12 @@
                 </button>
             </div>
         </div>
-        <div v-for="user in users" class="list-container rounded p-4" @click="$router.push({name:'userDetails', params:{id:user.id}})" :key="user.id">
+        <div v-for="user in users" class="list-container rounded p-4" 
+        :class="{
+            'd-block' : user.id != $globals.get('user').id,
+            'd-none' : user.id == $globals.get('user').id
+        }" 
+        @click="$router.push({name:'userDetails', params:{id:user.id}})" :key="user.id">
             <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
                 <div class="d-flex justify-content-center align-items-center gap-4">
                     <div>
