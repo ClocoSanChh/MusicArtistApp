@@ -33,14 +33,14 @@ const routes = [
         {
           path: 'users', 
           children: [
-            {path: '/users', name: 'users', component: Users},
+            {path: '', name: 'users', component: Users},
             {path: ':id', name: 'userDetails', component: UserDetails, props:true},
           ]
         },
         {
           path: 'artists', 
           children: [
-            {path: '/artists', name: 'artists', component: Artists},
+            {path: '', name: 'artists', component: Artists},
             {path: ':id', name: 'artistDetails', component: ArtistDetails, props:true},
           ]
         },
